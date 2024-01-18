@@ -15,6 +15,7 @@
         <module>bayou-mall-order</module>
         <module>bayou-mall-product</module>
         <module>bayou-mall-ware</module>
+        <module>bayou-mall-common</module>
     </modules>
 
     <build>
