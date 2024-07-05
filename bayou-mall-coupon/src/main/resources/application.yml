@@ -25,6 +25,14 @@ spring:
   #    url: jdbc:postgresql://192.168.10.10:5432/renren_fast
   #    username: postgres
   #    password: 123456
+  #  nacos配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.137.1:8848
+  application:
+    name: bayou-mall-coupon
+
 
 
 
@@ -59,4 +67,6 @@ pagehelper:
 #指定数据库，可选值有【mysql、oracle、sqlserver、postgresql、mongodb】
 #renren:
 #  database: mysql
+
+
 

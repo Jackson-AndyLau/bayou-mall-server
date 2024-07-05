@@ -1,16 +1,17 @@
-package com.huazai.bayou.order;
+package com.huazai.bayou.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
+ *
  * @author Jackson
  */
 @SpringBootApplication
-public class BayouMallOrderApplication {
+public class BayouMallGatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BayouMallOrderApplication.class, args);
+        SpringApplication.run(BayouMallGatewayApplication.class, args);
     }
 
 }
