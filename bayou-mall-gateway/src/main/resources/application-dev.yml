@@ -1,0 +1,50 @@
+server:
+  port: 9000
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: bayou-mall-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: test-route01
+          uri: https://auth.ec.test.trydotec.com
+          predicates:
+            - Query=login,ec
+        - id: test-route03
+          uri: https://www.yuque.com
+          predicates:
+            - Query=login,yuque
+
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: fe30df6c-162b-481e-96e5-db964fe976ad
+        import-check:
+          enabled: false
+
+  # mysql
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #MySQL配置
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.56.10:3306/bayou-mall-gateway?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    #oracle配置
+    #    driverClassName: oracle.jdbc.OracleDriver
+    #    url: jdbc:oracle:thin:@47.100.206.162:1521:xe
+    #    username: renren
+    #    password: 123456
+    #SQLServer配置
+    #    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    #    url: jdbc:sqlserver://192.168.10.10:1433;DatabaseName=renren_fast
+    #    username: sa
+    #    password: 123456
+    #PostgreSQL配置
+    #    driverClassName: org.postgresql.Driver
+    #    url: jdbc:postgresql://192.168.10.10:5432/renren_fast
+    #    username: postgres
+    #    password: 123456
+
