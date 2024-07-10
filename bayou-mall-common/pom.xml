@@ -98,6 +98,11 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.amdelamar</groupId>
+            <artifactId>jotp</artifactId>
+            <version>1.3.0</version>
+        </dependency>
      </dependencies>
 
     <build>
