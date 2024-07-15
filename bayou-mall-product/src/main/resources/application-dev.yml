@@ -1,8 +1,19 @@
 server:
-  port: 8000
+  port: 1000
 
 # mysql
 spring:
+  application:
+    name: bayou-mall-product
+  # nacos 配置
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 5466f783-0729-434d-a7e4-b511e1bfc2f6
+        import-check:
+          enabled: false
+  # 数据源配置
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     #MySQL配置

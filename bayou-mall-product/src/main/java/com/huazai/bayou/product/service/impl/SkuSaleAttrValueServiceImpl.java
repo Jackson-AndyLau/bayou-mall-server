@@ -8,25 +8,25 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.huazai.bayou.common.utils.PageUtils;
 import com.huazai.bayou.common.utils.Query;
 
-import com.huazai.bayou.product.dao.CategoryDao;
-import com.huazai.bayou.product.entity.CategoryEntity;
-import com.huazai.bayou.product.service.CategoryService;
+import com.huazai.bayou.product.dao.SkuSaleAttrValueDao;
+import com.huazai.bayou.product.entity.SkuSaleAttrValueEntity;
+import com.huazai.bayou.product.service.SkuSaleAttrValueService;
 
 /**
- * 商品三级分类
+ * sku销售属性&值
  *
  * {@code @author by} HuaZai
  * {@code @email} who.seek.me@java98k.vip
  * {@code @date} 2024-07-15
  */
-@Service("categoryService")
-public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity> implements CategoryService {
+@Service("skuSaleAttrValueService")
+public class SkuSaleAttrValueServiceImpl extends ServiceImpl<SkuSaleAttrValueDao, SkuSaleAttrValueEntity> implements SkuSaleAttrValueService {
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
-        IPage<CategoryEntity> page = this.page(
-                new Query<CategoryEntity>().getPage(params),
-                new QueryWrapper<CategoryEntity>()
+        IPage<SkuSaleAttrValueEntity> page = this.page(
+                new Query<SkuSaleAttrValueEntity>().getPage(params),
+                new QueryWrapper<SkuSaleAttrValueEntity>()
         );
 
         return new PageUtils(page);

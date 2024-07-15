@@ -8,53 +8,41 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 商品三级分类
+ * 属性分组
  *
  * {@code @author by} HuaZai
  * {@code @email} who.seek.me@java98k.vip
  * {@code @date} 2024-07-15
  */
 @Data
-@TableName("pms_category")
-public class CategoryEntity implements Serializable {
+@TableName("pms_attr_group")
+public class AttrGroupEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 分类id
+	 * 分组id
 	 */
 	@TableId
-	private Long catId;
+	private Long attrGroupId;
 	/**
-	 * 分类名称
+	 * 组名
 	 */
-	private String name;
-	/**
-	 * 父分类id
-	 */
-	private Long parentCid;
-	/**
-	 * 层级
-	 */
-	private Integer catLevel;
-	/**
-	 * 是否显示[0-不显示，1显示]
-	 */
-	private Integer showStatus;
+	private String attrGroupName;
 	/**
 	 * 排序
 	 */
 	private Integer sort;
 	/**
-	 * 图标地址
+	 * 描述
+	 */
+	private String descript;
+	/**
+	 * 组图标
 	 */
 	private String icon;
 	/**
-	 * 计量单位
+	 * 所属分类id
 	 */
-	private String productUnit;
-	/**
-	 * 商品数量
-	 */
-	private Integer productCount;
+	private Long catelogId;
 
 }

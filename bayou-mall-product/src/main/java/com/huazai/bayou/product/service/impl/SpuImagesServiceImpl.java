@@ -8,25 +8,25 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.huazai.bayou.common.utils.PageUtils;
 import com.huazai.bayou.common.utils.Query;
 
-import com.huazai.bayou.product.dao.CategoryDao;
-import com.huazai.bayou.product.entity.CategoryEntity;
-import com.huazai.bayou.product.service.CategoryService;
+import com.huazai.bayou.product.dao.SpuImagesDao;
+import com.huazai.bayou.product.entity.SpuImagesEntity;
+import com.huazai.bayou.product.service.SpuImagesService;
 
 /**
- * 商品三级分类
+ * spu图片
  *
  * {@code @author by} HuaZai
  * {@code @email} who.seek.me@java98k.vip
  * {@code @date} 2024-07-15
  */
-@Service("categoryService")
-public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity> implements CategoryService {
+@Service("spuImagesService")
+public class SpuImagesServiceImpl extends ServiceImpl<SpuImagesDao, SpuImagesEntity> implements SpuImagesService {
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
-        IPage<CategoryEntity> page = this.page(
-                new Query<CategoryEntity>().getPage(params),
-                new QueryWrapper<CategoryEntity>()
+        IPage<SpuImagesEntity> page = this.page(
+                new Query<SpuImagesEntity>().getPage(params),
+                new QueryWrapper<SpuImagesEntity>()
         );
 
         return new PageUtils(page);

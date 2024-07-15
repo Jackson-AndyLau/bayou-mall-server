@@ -10,32 +10,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.huazai.bayou.product.entity.CategoryEntity;
-import com.huazai.bayou.product.service.CategoryService;
+import com.huazai.bayou.product.entity.SpuInfoDescEntity;
+import com.huazai.bayou.product.service.SpuInfoDescService;
 import com.huazai.bayou.common.utils.PageUtils;
 import com.huazai.bayou.common.utils.R;
 
 
 
 /**
- * 商品三级分类
+ * spu信息介绍
  *
  * {@code @author by} HuaZai
  * {@code @email} who.seek.me@java98k.vip
  * {@code @date} 2024-07-15
  */
 @RestController
-@RequestMapping("product/category")
-public class CategoryController {
+@RequestMapping("product/spuinfodesc")
+public class SpuInfoDescController {
     @Autowired
-    private CategoryService categoryService;
+    private SpuInfoDescService spuInfoDescService;
 
     /**
      * 列表
      */
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = categoryService.queryPage(params);
+        PageUtils page = spuInfoDescService.queryPage(params);
 
         return R.ok().put("page", page);
     }
@@ -44,19 +44,19 @@ public class CategoryController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{catId}")
-    public R info(@PathVariable("catId") Long catId){
-		CategoryEntity category = categoryService.getById(catId);
+    @RequestMapping("/info/{spuId}")
+    public R info(@PathVariable("spuId") Long spuId){
+		SpuInfoDescEntity spuInfoDesc = spuInfoDescService.getById(spuId);
 
-        return R.ok().put("category", category);
+        return R.ok().put("spuInfoDesc", spuInfoDesc);
     }
 
     /**
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody CategoryEntity category){
-		categoryService.save(category);
+    public R save(@RequestBody SpuInfoDescEntity spuInfoDesc){
+		spuInfoDescService.save(spuInfoDesc);
 
         return R.ok();
     }
@@ -65,8 +65,8 @@ public class CategoryController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody CategoryEntity category){
-		categoryService.updateById(category);
+    public R update(@RequestBody SpuInfoDescEntity spuInfoDesc){
+		spuInfoDescService.updateById(spuInfoDesc);
 
         return R.ok();
     }
@@ -75,8 +75,8 @@ public class CategoryController {
      * 删除
      */
     @RequestMapping("/delete")
-    public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
+    public R delete(@RequestBody Long[] spuIds){
+		spuInfoDescService.removeByIds(Arrays.asList(spuIds));
 
         return R.ok();
     }

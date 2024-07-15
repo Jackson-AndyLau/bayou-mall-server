@@ -8,25 +8,25 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.huazai.bayou.common.utils.PageUtils;
 import com.huazai.bayou.common.utils.Query;
 
-import com.huazai.bayou.product.dao.CategoryDao;
-import com.huazai.bayou.product.entity.CategoryEntity;
-import com.huazai.bayou.product.service.CategoryService;
+import com.huazai.bayou.product.dao.CategoryBrandRelationDao;
+import com.huazai.bayou.product.entity.CategoryBrandRelationEntity;
+import com.huazai.bayou.product.service.CategoryBrandRelationService;
 
 /**
- * 商品三级分类
+ * 品牌分类关联
  *
  * {@code @author by} HuaZai
  * {@code @email} who.seek.me@java98k.vip
  * {@code @date} 2024-07-15
  */
-@Service("categoryService")
-public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity> implements CategoryService {
+@Service("categoryBrandRelationService")
+public class CategoryBrandRelationServiceImpl extends ServiceImpl<CategoryBrandRelationDao, CategoryBrandRelationEntity> implements CategoryBrandRelationService {
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
-        IPage<CategoryEntity> page = this.page(
-                new Query<CategoryEntity>().getPage(params),
-                new QueryWrapper<CategoryEntity>()
+        IPage<CategoryBrandRelationEntity> page = this.page(
+                new Query<CategoryBrandRelationEntity>().getPage(params),
+                new QueryWrapper<CategoryBrandRelationEntity>()
         );
 
         return new PageUtils(page);
