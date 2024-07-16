@@ -4,7 +4,7 @@ package com.huazai.bayou.common.exception;
 /**
  * 自定义异常
  *
- * @author Mark sunlightcs@gmail.com
+ * @author Mark who.seek.me@java98k.vip
  */
 public class RRException extends RuntimeException {
     private static final long serialVersionUID = 1L;

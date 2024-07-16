@@ -17,6 +17,7 @@
         <module>bayou-mall-ware</module>
         <module>bayou-mall-common</module>
         <module>bayou-mall-gateway</module>
+        <module>bayou-mall-admin</module>
     </modules>
 
     <build>
