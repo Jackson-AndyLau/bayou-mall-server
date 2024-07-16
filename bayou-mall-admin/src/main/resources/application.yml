@@ -53,7 +53,7 @@ mybatis-plus:
     jdbc-type-for-null: 'null'
 
 
-renren:
+bayou:
   redis:
     open: false
   shiro:

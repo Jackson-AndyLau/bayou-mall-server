@@ -29,7 +29,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
             //加了ApiOperation注解的类，才生成接口文档
             .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
             //包下的类，才生成接口文档
-            //.apis(RequestHandlerSelectors.basePackage("io.renren.controller"))
+            //.apis(RequestHandlerSelectors.basePackage("com.huazai.bayou.controller"))
             .paths(PathSelectors.any())
             .build()
             .securitySchemes(security());
@@ -37,9 +37,9 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("人人开源")
-            .description("renren-fast文档")
-            .termsOfServiceUrl("https://www.renren.io")
+            .title("bayou商城")
+            .description("bayou-mall-admin接口文档")
+            .termsOfServiceUrl("https://www.bayoumall.java98k.vip")
             .version("3.0.0")
             .build();
     }

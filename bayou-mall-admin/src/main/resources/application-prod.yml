@@ -3,8 +3,8 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         druid:
             driver-class-name: com.mysql.cj.jdbc.Driver
-            url: jdbc:mysql://localhost:3306/renren_fast?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-            username: renren
+            url: jdbc:mysql://192.168.56.10:3306/bayou-mall-admin?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+            username: root
             password: 123456
             initial-size: 10
             max-active: 100
@@ -39,19 +39,19 @@ spring:
 #  datasource:
 #    slave1:
 #      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#      url: jdbc:sqlserver://localhost:1433;DatabaseName=renren_security
+#      url: jdbc:sqlserver://192.168.56.10:1433;DatabaseName=bayou_security
 #      username: sa
 #      password: 123456
 #    slave2:
 #      driver-class-name: org.postgresql.Driver
-#      url: jdbc:postgresql://localhost:5432/renren_security
-#      username: renren
+#      url: jdbc:postgresql://192.168.56.10:5432/bayou_security
+#      username: bayou
 #      password: 123456
 
     redis:
         open: false  # 是否开启redis缓存  true开启   false关闭
         database: 0
-        host: localhost
+        host: 192.168.56.10
         port: 6379
         password:    # 密码（默认为空）
         timeout: 6000ms  # 连接超时时长（毫秒）
