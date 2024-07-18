@@ -20,13 +20,14 @@ spring:
           uri: lb://bayou-mall-admin
           predicates:
             - Path=/api/**
-
     nacos:
-      config:
+      discovery:
         server-addr: 2.0.0.1:8848
-        namespace: fe30df6c-162b-481e-96e5-db964fe976ad
+      config:
         import-check:
           enabled: false
+      username: nacos
+      password: nacos
 
   # mysql
   datasource:
@@ -51,4 +52,3 @@ spring:
     #    url: jdbc:postgresql://192.168.10.10:5432/bayou-mall-gateway
     #    username: postgres
     #    password: 123456
-
