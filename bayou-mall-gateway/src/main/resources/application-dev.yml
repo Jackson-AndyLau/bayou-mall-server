@@ -16,10 +16,14 @@ spring:
           uri: https://www.yuque.com
           predicates:
             - Query=login,yuque
+        - id: admin_route
+          uri: lb://bayou-mall-admin
+          predicates:
+            - Path=/api/**
 
     nacos:
       config:
-        server-addr: 127.0.0.1:8848
+        server-addr: 2.0.0.1:8848
         namespace: fe30df6c-162b-481e-96e5-db964fe976ad
         import-check:
           enabled: false
