@@ -110,6 +110,12 @@
             <artifactId>jotp</artifactId>
             <version>1.3.0</version>
         </dependency>
+        <!--客户端负载均衡loadbalancer-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+            <version>4.1.0</version>
+        </dependency>
      </dependencies>
 
     <build>

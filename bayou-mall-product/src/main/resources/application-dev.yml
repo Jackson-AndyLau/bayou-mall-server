@@ -13,8 +13,8 @@ spring:
         namespace: 5466f783-0729-434d-a7e4-b511e1bfc2f6
         import-check:
           enabled: false
-        username: nacos
-        password: nacos
+      username: nacos
+      password: nacos
   # 数据源配置
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

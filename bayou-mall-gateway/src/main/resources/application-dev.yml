@@ -20,6 +20,8 @@ spring:
           uri: lb://bayou-mall-admin
           predicates:
             - Path=/api/**
+          filters:
+            - RewritePath=/api/?(?<segment>.*), /bayou-mall-admin/$\{segment}
     nacos:
       discovery:
         server-addr: 2.0.0.1:8848
@@ -52,3 +54,19 @@ spring:
     #    url: jdbc:postgresql://192.168.10.10:5432/bayou-mall-gateway
     #    username: postgres
     #    password: 123456
+#logging:
+#  level:
+#    root: debug
+
+# /actuator/health，注册服务的健康检查
+management:
+  endpoint:
+    env:
+      post:
+        enabled: true
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
