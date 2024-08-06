@@ -6,8 +6,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.reactive.CorsWebFilter;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
-import java.util.Arrays;
-
 /**
  * ClassName: BayouMallCorsConfiguration
  * Package: com.huazai.bayou.gateway.config
@@ -18,20 +16,24 @@ import java.util.Arrays;
  * @Version 1.0
  */
 @Configuration
-public class BayouMallCorsConfiguration {
+public class MyCorsConfiguration {
 
     @Bean
     public CorsWebFilter corsWebFilter() {
         UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-
         // 跨域配置
+        // 放行全部原始头信息
         corsConfiguration.addAllowedHeader("*");
+        // 允许所有请求方法跨域调用
         corsConfiguration.addAllowedMethod("*");
-        corsConfiguration.addAllowedOriginPattern("");
-//        corsConfiguration.setAllowCredentials(true);
+        // 允许所有域名进行跨域调用
+        corsConfiguration.addAllowedOriginPattern("*");
+        // 允许跨域发送cookie
+        corsConfiguration.setAllowCredentials(true);
 
-        urlBasedCorsConfigurationSource.registerCorsConfiguration("/**",corsConfiguration);
+        // 对所有路径应用 CORS 配置
+        urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
         return new CorsWebFilter(urlBasedCorsConfigurationSource);
     }
 }
