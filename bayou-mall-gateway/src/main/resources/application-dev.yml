@@ -19,9 +19,15 @@ spring:
         - id: admin_route
           uri: lb://bayou-mall-admin
           predicates:
-            - Path=/api/**
+            - Path=/api/admin/**
           filters:
-            - RewritePath=/api/?(?<segment>.*), /bayou-mall-admin/$\{segment}
+            - RewritePath=/api/admin/?(?<segment>.*), /bayou-mall-admin/$\{segment}
+        - id: product_route
+          uri: lb://bayou-mall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/?(?<segment>.*), /$\{segment}
     nacos:
       discovery:
         server-addr: 2.0.0.1:8848
