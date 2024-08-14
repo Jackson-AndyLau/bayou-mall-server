@@ -2,6 +2,7 @@ package com.huazai.bayou.product.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
@@ -42,8 +43,9 @@ public class CategoryEntity implements Serializable {
 	 */
 	private Integer catLevel;
 	/**
-	 * 是否显示[0-不显示，1显示]
+	 * 是否显示[0-显示，1不显示]
 	 */
+	@TableLogic
 	private Integer showStatus;
 	/**
 	 * 排序
