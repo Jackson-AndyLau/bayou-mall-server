@@ -87,4 +87,15 @@ public class CategoryController {
         return R.ok();
     }
 
+    /**
+     * 节点排序
+     */
+    @RequestMapping("/reSort")
+    public R delete(@RequestBody CategoryEntity[] categoryEntities) {
+
+        categoryService.updateBatchById(Arrays.asList(categoryEntities));
+
+        return R.ok();
+    }
+
 }
