@@ -15,6 +15,7 @@ spring:
           enabled: false
       username: nacos
       password: nacos
+
   # 数据源配置
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -77,3 +78,9 @@ pagehelper:
 logging:
   level:
     com.huazai.bayou.product: debug
+alibaba:
+  cloud:
+    access-key: LTAI5t7bxvcBX9zbbqnXrHj2
+    secret-key: t2jX1DYieiQzoJ4uyac9CgMo2VcvC5
+    oss:
+      endpoint: oss-cn-chengdu.aliyuncs.com
