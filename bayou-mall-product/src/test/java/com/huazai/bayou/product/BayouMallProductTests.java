@@ -32,9 +32,9 @@ public class BayouMallProductTests {
     void uploadFile() throws ClientException, FileNotFoundException {
         CredentialsProvider credentialsProvider01 = new CredentialsProvider() {
             // 初始化变量
-            String accessKeyId = "LTAI5t7bxvcBX9zbbqnXrHj2";
+            String accessKeyId = "";
             // 初始化变量
-            String accessKeySecrect = "t2jX1DYieiQzoJ4uyac9CgMo2VcvC5";
+            String accessKeySecrect = "";
 
             // 初始化变量
             // String token = null;
@@ -53,7 +53,7 @@ public class BayouMallProductTests {
             }
         };
         // Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。
-        String endpoint = "oss-cn-chengdu.aliyuncs.com";
+        String endpoint = "";
         // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
         // EnvironmentVariableCredentialsProvider credentialsProvider02 = CredentialsProviderFactory.newEnvironmentVariableCredentialsProvider();
         // 填写Bucket名称，例如examplebucket。
