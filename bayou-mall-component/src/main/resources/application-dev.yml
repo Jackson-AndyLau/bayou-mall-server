@@ -1,0 +1,22 @@
+server:
+  port: 20000
+
+spring:
+  application:
+    name: bayou-mall-component
+  cloud:
+    nacos:
+      password: nacos
+      username: nacos
+      config:
+        server-addr: 2.0.0.1:8848
+        namespace: 52138a11-c154-45e2-9c0c-71f8c774ff30
+        import-check:
+          enabled: false
+
+alibaba:
+  cloud:
+    oss:
+      endpoint:
+    access-key:
+    secret-key:
