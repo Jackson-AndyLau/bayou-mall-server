@@ -80,7 +80,7 @@ logging:
     com.huazai.bayou.product: debug
 alibaba:
   cloud:
-    access-key: LTAI5t7bxvcBX9zbbqnXrHj2
-    secret-key: t2jX1DYieiQzoJ4uyac9CgMo2VcvC5
+    access-key:
+    secret-key:
     oss:
-      endpoint: oss-cn-chengdu.aliyuncs.com
+      endpoint:
