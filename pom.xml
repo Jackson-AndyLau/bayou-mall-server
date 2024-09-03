@@ -18,7 +18,7 @@
         <module>bayou-mall-common</module>
         <module>bayou-mall-gateway</module>
         <module>bayou-mall-admin</module>
-        <module>bayou-thrid-party</module>
+        <module>bayou-mall-component</module>
     </modules>
 
     <build>
