@@ -25,12 +25,12 @@ class BayouMallComponentApplicationTests {
         // 填写Bucket名称，例如examplebucket。
         String bucketName = "bayou-bucket";
         // 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。
-        String objectName = "product/my-product-03.png";
+        String objectName = "product/my-product-05.png";
         // 如果未指定本地路径，则默认从示例程序所属项目对应本地路径中上传文件流。
         String filePath = "F:\\图片1.png";
         InputStream inputStream = new FileInputStream(filePath);
 
-        PutObjectResult putObjectResult = ossClient.putObject(bucketName, objectName, inputStream);
+//        PutObjectResult putObjectResult = ossClient.putObject(bucketName, objectName, inputStream);
 
         System.out.println("文件上传完成。。。。。。");
     }

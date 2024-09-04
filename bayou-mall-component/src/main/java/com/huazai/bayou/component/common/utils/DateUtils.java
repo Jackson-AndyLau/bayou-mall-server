@@ -1,4 +1,4 @@
-package com.huazai.bayou.admin.common.utils;
+package com.huazai.bayou.component.common.utils;
 
 import org.apache.commons.lang.StringUtils;
 import org.joda.time.DateTime;
@@ -31,6 +31,7 @@ public class DateUtils {
      * @return 返回yyyy-MM-dd格式日期
      */
     public static String format(Date date) {
+
         return format(date, DATE_PATTERN);
     }
 

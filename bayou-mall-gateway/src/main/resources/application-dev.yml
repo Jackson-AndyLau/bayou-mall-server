@@ -28,6 +28,13 @@ spring:
             - Path=/api/product/**
           filters:
             - RewritePath=/api/?(?<segment>.*), /$\{segment}
+        - id: component_route
+          uri: lb://bayou-mall-component
+          predicates:
+            - Path=/api/component/**
+          filters:
+            - RewritePath=/api/?(?<segment>.*), /$\{segment}
+
     nacos:
       discovery:
         server-addr: 2.0.0.1:8848

@@ -309,7 +309,8 @@
                         </command>
                         <!-- Restart jar package，write result into bayou.log -->
                         <command>
-                            <![CDATA[nohup java -jar ${service-path}/${pack-name} --spring.profiles.active=test > ${service-path}/bayou.log 2>&1 & ]]></command>
+                            <![CDATA[nohup java -jar ${service-path}/${pack-name} --spring.profiles.active=test > ${service-path}/bayou.log 2>&1 & ]]>
+                        </command>
                         <command><![CDATA[netstat -nptl]]></command>
                         <command><![CDATA[ps -ef | grep java | grep -v grep]]></command>
                     </commands>
