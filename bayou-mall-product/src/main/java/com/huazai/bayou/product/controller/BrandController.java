@@ -2,10 +2,13 @@ package com.huazai.bayou.product.controller;
 
 import com.huazai.bayou.common.utils.PageUtils;
 import com.huazai.bayou.common.utils.R;
+import com.huazai.bayou.common.valid.AddValidGroup;
+import com.huazai.bayou.common.valid.UpdateValidGroup;
 import com.huazai.bayou.product.entity.BrandEntity;
 import com.huazai.bayou.product.service.BrandService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -50,7 +53,7 @@ public class BrandController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@Valid @RequestBody BrandEntity brand/*, BindingResult bindingResult*/) {
+    public R save(/*@Valid*/ @Validated(AddValidGroup.class) @RequestBody BrandEntity brand/*, BindingResult bindingResult*/) {
 /*        if (bindingResult.hasErrors()) {
             Map<String, String> validMap = new HashMap<>();
             bindingResult.getFieldErrors().forEach(result -> {
@@ -72,7 +75,7 @@ public class BrandController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody BrandEntity brand) {
+    public R update(@Validated(UpdateValidGroup.class) @RequestBody BrandEntity brand) {
         brandService.updateById(brand);
 
         return R.ok();
