@@ -1,25 +1,23 @@
 package com.huazai.bayou.product.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.huazai.bayou.product.entity.BrandEntity;
-import com.huazai.bayou.product.service.BrandService;
+import com.huazai.bayou.common.enums.ResponseCodeEnum;
 import com.huazai.bayou.common.utils.PageUtils;
 import com.huazai.bayou.common.utils.R;
+import com.huazai.bayou.product.entity.BrandEntity;
+import com.huazai.bayou.product.service.BrandService;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
  * 品牌
- *
+ * <p>
  * {@code @author by} HuaZai
  * {@code @email} who.seek.me@java98k.vip
  * {@code @date} 2024-07-15
@@ -34,7 +32,7 @@ public class BrandController {
      * 列表
      */
     @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params){
+    public R list(@RequestParam Map<String, Object> params) {
         PageUtils page = brandService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -45,8 +43,8 @@ public class BrandController {
      * 信息
      */
     @RequestMapping("/info/{brandId}")
-    public R info(@PathVariable("brandId") Long brandId){
-		BrandEntity brand = brandService.getById(brandId);
+    public R info(@PathVariable("brandId") Long brandId) {
+        BrandEntity brand = brandService.getById(brandId);
 
         return R.ok().put("brand", brand);
     }
@@ -55,9 +53,20 @@ public class BrandController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody BrandEntity brand){
-		brandService.save(brand);
+    public R save(@Valid @RequestBody BrandEntity brand, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            Map<String, Object> validMap = new HashMap<>();
+            bindingResult.getFieldErrors().forEach(result -> {
+                String field = result.getField();
+                String message = result.getDefaultMessage();
 
+                validMap.put(field, message);
+            });
+            return R.error(ResponseCodeEnum.COMMON_FAILED.getCode(), "保存的产品信息不合法，请修改后重新提交！").put(validMap);
+        } else {
+
+            brandService.save(brand);
+        }
         return R.ok();
     }
 
@@ -65,8 +74,8 @@ public class BrandController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody BrandEntity brand){
-		brandService.updateById(brand);
+    public R update(@RequestBody BrandEntity brand) {
+        brandService.updateById(brand);
 
         return R.ok();
     }
@@ -75,8 +84,8 @@ public class BrandController {
      * 删除
      */
     @RequestMapping("/delete")
-    public R delete(@RequestBody Long[] brandIds){
-		brandService.removeByIds(Arrays.asList(brandIds));
+    public R delete(@RequestBody Long[] brandIds) {
+        brandService.removeByIds(Arrays.asList(brandIds));
 
         return R.ok();
     }

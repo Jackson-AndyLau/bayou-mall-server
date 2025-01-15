@@ -6,6 +6,7 @@ import com.aliyun.oss.common.utils.BinaryUtil;
 import com.aliyun.oss.model.MatchMode;
 import com.aliyun.oss.model.PolicyConditions;
 import com.huazai.bayou.component.common.utils.DateUtils;
+import com.huazai.bayou.component.common.utils.R;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +40,7 @@ public class OssController {
     private String bucketName;
 
     @GetMapping("/getSignature")
-    public Map<String, String> getSignature() {
+    public R getSignature() {
         // 映射实现类，取值
         OSSClient ossClientImpl = (OSSClient) ossClient;
         String endPoint = String.valueOf(ossClientImpl.getEndpoint().getHost());
@@ -98,7 +99,7 @@ public class OssController {
             //response.setHeader("Access-Control-Allow-Methods", "GET, POST");
             //response(request, response, ja1.toString());
 
-            return respMap;
+            return R.ok().put("data", respMap);
         } catch (Exception e) {
             // Assert.fail(e.getMessage());
             System.out.println(e.getMessage());

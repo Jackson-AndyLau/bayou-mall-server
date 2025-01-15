@@ -37,9 +37,9 @@ spring:
     #    password: 123456
 alibaba:
   cloud:
-    access-key:
-    secret-key:
+    access-key: LTAI5t7bxvcBX9zbbqnXrHj2
+    secret-key: t2jX1DYieiQzoJ4uyac9CgMo2VcvC5
     oss:
-      endpoint:
+      endpoint: oss-cn-chengdu.aliyuncs.com
       bucket:
         name: bayou-bucket
