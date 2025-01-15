@@ -1,6 +1,7 @@
-package com.huazai.bayou.common.exception;
+package com.huazai.bayou.product.exception;
 
 import com.huazai.bayou.common.enums.BizExceptionCodeEnum;
+import com.huazai.bayou.common.exception.RRException;
 import com.huazai.bayou.common.utils.R;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -17,14 +18,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 公共异常处理器（参考模板）
+ * 商品异常处理器
  *
  * @author Mark who.seek.me@java98k.vip
  */
 @Slf4j
-@RestControllerAdvice(basePackages = "com.huazai.bayou.component.controller")
+@RestControllerAdvice(basePackages = {"com.huazai.bayou.product.controller"})
 public class RRExceptionHandler {
     private Logger logger = LoggerFactory.getLogger(getClass());
+
+    @ResponseBody
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public R handleValidException(MethodArgumentNotValidException e) {
+        log.error("校验异常内容：{},异常类型：{}", e.getMessage(), e.getClass());
+
+        BindingResult bindingResult = e.getBindingResult();
+        Map<String, String> errorMap = new HashMap<>();
+
+        bindingResult.getFieldErrors().forEach(error -> {
+            errorMap.put(error.getField(), error.getDefaultMessage());
+        });
+
+        return R.error(BizExceptionCodeEnum.PRODUCT_VALID_ERROR.getCode(), BizExceptionCodeEnum.PRODUCT_VALID_ERROR.getName()).put(errorMap);
+    }
 
     /**
      * 处理自定义异常

@@ -54,7 +54,7 @@ public class R extends HashMap<String, Object> {
         return this;
     }
 
-    public R put(Map<String, Object> map) {
+    public R put(Map<String, String> map) {
         super.put("data", map);
         return this;
     }
