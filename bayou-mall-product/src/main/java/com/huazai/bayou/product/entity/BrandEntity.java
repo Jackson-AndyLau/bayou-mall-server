@@ -2,10 +2,12 @@ package com.huazai.bayou.product.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.huazai.bayou.common.annotation.valid.DataStatusValid;
 import com.huazai.bayou.common.valid.AddValidGroup;
 import com.huazai.bayou.common.valid.UpdateValidGroup;
 import jakarta.validation.constraints.*;
 import lombok.Data;
+import org.hibernate.validator.constraints.EAN;
 import org.hibernate.validator.constraints.URL;
 
 import java.io.Serializable;
@@ -48,8 +50,9 @@ public class BrandEntity implements Serializable {
     /**
      * 显示状态[0-不显示；1-显示]
      */
-    @Min(value = 0, message = "品牌的显示状态必须是正整数！", groups = {AddValidGroup.class, UpdateValidGroup.class})
-    @NotNull(message = "品牌显示状态不能为空！")
+//    @Min(value = 0, message = "品牌的显示状态必须是正整数！", groups = {AddValidGroup.class, UpdateValidGroup.class})
+//    @NotNull(message = "品牌显示状态不能为空！")
+    @DataStatusValid(values = {0,1},groups = AddValidGroup.class)
     private Integer showStatus;
     /**
      * 检索首字母
