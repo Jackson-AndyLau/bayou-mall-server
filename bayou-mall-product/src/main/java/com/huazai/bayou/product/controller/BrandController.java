@@ -3,6 +3,7 @@ package com.huazai.bayou.product.controller;
 import com.huazai.bayou.common.utils.PageUtils;
 import com.huazai.bayou.common.utils.R;
 import com.huazai.bayou.common.valid.AddValidGroup;
+import com.huazai.bayou.common.valid.UpdateStatusValidGroup;
 import com.huazai.bayou.common.valid.UpdateValidGroup;
 import com.huazai.bayou.product.entity.BrandEntity;
 import com.huazai.bayou.product.service.BrandService;
@@ -76,6 +77,16 @@ public class BrandController {
      */
     @RequestMapping("/update")
     public R update(@Validated(UpdateValidGroup.class) @RequestBody BrandEntity brand) {
+        brandService.updateById(brand);
+
+        return R.ok();
+    }
+
+    /**
+     * 修改
+     */
+    @RequestMapping("/updateStatus")
+    public R updateStatus(@Validated(UpdateStatusValidGroup.class) @RequestBody BrandEntity brand) {
         brandService.updateById(brand);
 
         return R.ok();
