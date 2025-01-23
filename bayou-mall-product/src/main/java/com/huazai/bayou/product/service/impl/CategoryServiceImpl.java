@@ -11,6 +11,7 @@ import com.huazai.bayou.product.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -75,4 +76,33 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         return childrenCategoryList;
     }
 
+    /**
+     * 查询属性分组的完整路径
+     *
+     * @param catelogId
+     * @return 完整路径
+     */
+    @Override
+    public Long[] queryCatelogPathByCatelogId(Long catelogId) {
+        List<Long> catelogIds = new ArrayList<>();
+        findParentCatelogIds(catelogId, catelogIds);
+
+        // 排序
+        List<Long> resultCatelogIds = catelogIds.stream().sorted().collect(Collectors.toList());
+//        List<Long> resultCatelogIds = catelogIds.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        // 类型转换
+        return resultCatelogIds.stream().toArray(Long[]::new);
+    }
+
+    private void findParentCatelogIds(Long catelogId, List<Long> catelogIds) {
+        // 当前节点ID
+        catelogIds.add(catelogId);
+
+        CategoryEntity categoryEntity = this.getById(catelogId);
+        // 0 为顶级父级节点
+        if (categoryEntity.getParentCid() != 0) {
+
+            this.findParentCatelogIds(categoryEntity.getParentCid(), catelogIds);
+        }
+    }
 }

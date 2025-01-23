@@ -52,10 +52,12 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
                 attrGroupEntityQueryWrapper.and((obj) -> {
                     obj.lambda().eq(AttrGroupEntity::getAttrGroupId, key).or().like(AttrGroupEntity::getAttrGroupName, key);
                 });
-                IPage<AttrGroupEntity> attrGroupEntityIPage = this.page(new Query<AttrGroupEntity>().getPage(params), attrGroupEntityQueryWrapper);
 
-                return new PageUtils(attrGroupEntityIPage);
             }
+            attrGroupEntityQueryWrapper.lambda().orderByAsc(AttrGroupEntity::getAttrGroupId);
+            IPage<AttrGroupEntity> attrGroupEntityIPage = this.page(new Query<AttrGroupEntity>().getPage(params), attrGroupEntityQueryWrapper);
+
+            return new PageUtils(attrGroupEntityIPage);
         }
         return null;
     }

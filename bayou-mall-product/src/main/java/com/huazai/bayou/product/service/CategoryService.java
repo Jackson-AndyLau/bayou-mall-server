@@ -22,5 +22,13 @@ public interface CategoryService extends IService<CategoryEntity> {
      * 获取分类树结构
      */
     List<CategoryEntity> queryTree(Map<String, Object> params);
+
+    /**
+     * 查询属性分组的完整路径
+     *
+     * @param catelogId
+     * @return 完整路径
+     */
+    Long[] queryCatelogPathByCatelogId(Long catelogId);
 }
 
