@@ -89,7 +89,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
 
         // 排序
         List<Long> resultCatelogIds = catelogIds.stream().sorted().collect(Collectors.toList());
-//        List<Long> resultCatelogIds = catelogIds.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        // List<Long> resultCatelogIds = catelogIds.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
         // 类型转换
         return resultCatelogIds.stream().toArray(Long[]::new);
     }
